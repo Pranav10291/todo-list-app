@@ -44,7 +44,7 @@ export default function SignInForm() {
             if (error?.message) {
                 toast({
                     variant: "destructive",
-                    title: "You submitted the following values:",
+                    title: "OOPS!",
                     description: (
                         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
                             <code className="text-white">{error.message}</code>
@@ -53,7 +53,7 @@ export default function SignInForm() {
                 });
             } else {
                 toast({
-                    title: "You submitted the following values:",
+                    title: "YAY!",
                     description: (
                         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
                             <code className="text-white">Logged In!</code>

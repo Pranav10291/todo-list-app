@@ -29,3 +29,13 @@ export async function signInWithEmailAndPassword(data: {
 
     return JSON.stringify(result);
 }
+
+export async function signInWithGoogle() {
+    const supabase = await createSupabaseServerClient();
+
+    const result = await supabase.auth.signInWithOAuth({
+        provider: "google",
+    });
+
+    return JSON.stringify(result);
+}

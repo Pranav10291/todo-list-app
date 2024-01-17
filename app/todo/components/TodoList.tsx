@@ -1,8 +1,6 @@
 import React from "react";
 import Task from "./Task";
 import { deleteTodoById, readTodo, updateCompletedById } from "../actions";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 const TodoList: React.FC = async () => {
     const { data: todos } = await readTodo();
@@ -18,14 +16,7 @@ const TodoList: React.FC = async () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {todos?.map((todo, index) => {
-                        const deleteTodo = deleteTodoById.bind(null, todo.id);
-                        const updateTodo = updateCompletedById.bind(
-                            null,
-                            todo.id,
-                            !todo.completed
-                        );
-
+                    {todos?.map((todo, index) => {              
                         return (
                             <Task key ={todo.id} id={todo.id} title={todo.title} completed={todo.completed} />
                         );

@@ -4,7 +4,9 @@ import { FormEventHandler, useState } from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
-import { deleteTodoById, updateTitleById } from "../actions";
+import { deleteTodoById, updateCompletedById, updateTitleById } from "../actions";
+import { MdOutlineDone } from "react-icons/md";
+import { cn } from "@/lib/utils";
 
 interface TaskProps {
     id: string;
@@ -33,10 +35,17 @@ const Task: React.FC<TaskProps> = ({ id, title, completed }) => {
         router.refresh();
     };
 
+
     return (
         <tr key={id}>
-            <td className="w-full">{title}</td>
+            <td className="w-full"><h1 className={cn({"line-through":completed})}>{title}</h1></td>
             <td className="flex gap-5">
+                <MdOutlineDone 
+                    onClick={() => updateCompletedById(id, !completed)}
+                    cursor="pointer"
+                    className="text-green-500"
+                    size={25}
+                />
                 <FiEdit
                     onClick={() => setOpenModalEdit(true)}
                     cursor="pointer"

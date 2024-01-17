@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-36">
-            <div>
+        <main className="flex min-h-screen flex-col items-center justify-between p-5">
+            <div className="pt-36">
                 <Image
                     className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
                     src="/taskify_logo_light.svg"
@@ -14,7 +14,7 @@ export default function Home() {
                     priority
                 />
             </div>
-            <div >
+            <div className="pb-24">
                 <h1 className="flex justify-center text-base font-bold text-gray-900">
                     Welcome to Taskify
                 </h1>

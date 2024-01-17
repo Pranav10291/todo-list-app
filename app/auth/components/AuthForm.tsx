@@ -14,13 +14,13 @@ export function AuthForm() {
                     <TabsTrigger value="register">Register</TabsTrigger>
                 </TabsList>
                 <TabsContent value="signin">
-                    <SignInForm />
+                    <div className="pb-5"><SignInForm /></div>
+                    <OAuthForm />
                 </TabsContent>
                 <TabsContent value="register">
                     <RegisterForm />
                 </TabsContent>
             </Tabs>
-            <OAuthForm />
         </div>
     );
 }

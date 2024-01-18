@@ -7,9 +7,9 @@ export default function OAuthForm() {
 	const supabase = createBrowserClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
 
 	const signInWithGoogle = async () => {
-		const { data, error } = await supabase.auth.signInWithOAuth({
+		let { data, error } = await supabase.auth.signInWithOAuth({
 			provider: 'google',
-		  })
+		})
 	};
 
 	return <Button onClick={signInWithGoogle} className="w-full">Login With Google</Button>;

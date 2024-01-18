@@ -3,6 +3,7 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { revalidatePath, unstable_noStore as noStore } from "next/cache";
 
+
 export async function createTodo(title: string) {
     const supabase = await createSupabaseServerClient();
     const result = await supabase.from("todos").insert({ title}).single();

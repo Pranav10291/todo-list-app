@@ -37,7 +37,7 @@ const AddTask = () => {
     };
 
     return (
-        <div>
+        <div className="">
             <button
                 onClick={() => setModalOpen(true)}
                 className="btn btn-primary w-full"
@@ -55,6 +55,7 @@ const AddTask = () => {
                             type="text"
                             placeholder="Type here"
                             className="input input-bordered w-full"
+                            required
                         />
                         <button type="submit" className="btn">
                             Submit

@@ -1,9 +1,9 @@
 import React from "react";
 import readUserSession from "@/lib/actions";
 import { redirect } from "next/navigation";
-import { deleteTodoById, readTodo, updateCompletedById } from "./actions";
 import TodoList from "./components/TodoList";
 import AddTask from "./components/AddTask";
+import CompletedCollapsible from "./components/CompletedCollapsible";
 
 export default async function Page() {
     const { data } = await readUserSession();
@@ -11,15 +11,15 @@ export default async function Page() {
         return redirect("/auth");
     }
 
-    const { data: todos } = await readTodo();
-
     return (
-        <main className="max-w-4xl mx-auto mt-4 h-screen">
-            <div className="text-center my-5 flex flex-col gap-4 ">
-                <h1 className="text-2xl font-bold">Your Tasks</h1>
+        <main className="max-w-4xl mx-auto mt-4 min-h-screen h-dvh">
+            <div className="min-h-full py-16">
+                <TodoList />
+                <CompletedCollapsible />
+            </div>
+            <div className="align-bottom">
                 <AddTask />
             </div>
-            <TodoList />
         </main>
     );
 }

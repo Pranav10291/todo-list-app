@@ -11,7 +11,7 @@ export default async function page() {
 	}
 
 	return (
-		<div className="flex justify-center items-center h-screen">
+		<div className="flex justify-center items-top h-screen py-36 px-5">
 			<div className="w-96">
 				<AuthForm />
 			</div>

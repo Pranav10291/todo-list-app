@@ -47,13 +47,12 @@ export default function SignInForm() {
                     title: "OOPS!",
                     description: (
                         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                            <code className="text-white">{error.message}</code>
+                            <code className="text-white">Something went Wrong!</code>
                         </pre>
                     ),
                 });
             } else {
                 toast({
-                    title: "YAY!",
                     description: (
                         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
                             <code className="text-white">Logged In!</code>

@@ -19,7 +19,7 @@ interface TaskProps {
     completed: boolean;
 }
 
-const Task: React.FC<TaskProps> = ({ id, title, completed }) => {
+const CompletedTask: React.FC<TaskProps> = ({ id, title, completed }) => {
     const router = useRouter();
     const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
     const [openModalDeleted, setOpenModalDeleted] = useState<boolean>(false);
@@ -29,6 +29,7 @@ const Task: React.FC<TaskProps> = ({ id, title, completed }) => {
         e
     ) => {
         e.preventDefault();
+        await updateCompletedById(id, !completed);
         await updateTitleById(id, taskToEdit);
         setOpenModalEdit(false);
         router.refresh();
@@ -49,25 +50,17 @@ const Task: React.FC<TaskProps> = ({ id, title, completed }) => {
     };
 
     return (
-        <tr
-            key={id}
-            className="hover:bg-slate-300 border border-transparent rounded-l-lg"
-        >
+        
+        <div className="flex items-center p-4 text-gray-600 hover:bg-green-300 border rounded-lg h-12">
             <td className="w-full border-transparent rounded-l-lg">
-                <h1 className={cn({ "line-through": completed })}>{title}</h1>
+                <h1 className=" text-sm line-through">{title}</h1>
             </td>
             <td className="border-transparent rounded-r-lg overflow-hidden">
                 <div className="flex gap-5">
-                    <MdOutlineDone
-                        onClick={() => updateCompletedById(id, !completed)}
-                        cursor="pointer"
-                        className="text-green-500"
-                        size={25}
-                    />
                     <FiEdit
                         onClick={() => setOpenModalEdit(true)}
                         cursor="pointer"
-                        className="text-black-500"
+                        className="text-green-500"
                         size={25}
                     />
                     <Modal
@@ -122,8 +115,8 @@ const Task: React.FC<TaskProps> = ({ id, title, completed }) => {
                     </Modal>
                 </div>
             </td>
-        </tr>
+        </div>
     );
 };
 
-export default Task;
+export default CompletedTask;

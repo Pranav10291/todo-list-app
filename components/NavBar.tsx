@@ -2,7 +2,6 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import SignOut from "./SignOut";
 import readUserSession from "@/lib/actions";
-import { redirect } from "next/navigation";
 
 const NavBar = async () => {
     const { data } = await readUserSession();
